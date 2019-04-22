@@ -14,12 +14,4 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void ok(View v){
-        Intent objIntent = new Intent(MainActivity.this, Reporte.class);
-        startActivity(objIntent);
-        finish();
-        //Toast.makeText(getApplication(), "HOLA MUNDO", Toast.LENGTH_LONG).show();
-    }
-
-
 }
