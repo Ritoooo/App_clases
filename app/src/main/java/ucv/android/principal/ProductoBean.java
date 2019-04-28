@@ -1,10 +1,8 @@
 package ucv.android.principal;
 
 public class ProductoBean {
-    int talla;
-    String marca;
-    int numPares;
-    double descuento;
+    int talla,numPares, costo, marca;
+    double descuento,venta,ventaNeta;
 
     public int getTalla() {
         return talla;
@@ -12,14 +10,6 @@ public class ProductoBean {
 
     public void setTalla(int talla) {
         this.talla = talla;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     public int getNumPares() {
@@ -30,11 +20,43 @@ public class ProductoBean {
         this.numPares = numPares;
     }
 
+    public int getCosto() {
+        return costo;
+    }
+
+    public void setCosto(int costo) {
+        this.costo = costo;
+    }
+
+    public int getMarca() {
+        return marca;
+    }
+
+    public void setMarca(int marca) {
+        this.marca = marca;
+    }
+
     public double getDescuento() {
         return descuento;
     }
 
     public void setDescuento(double descuento) {
         this.descuento = descuento;
+    }
+
+    public double getVenta() {
+        return venta;
+    }
+
+    public void setVenta(double venta) {
+        this.venta = venta;
+    }
+
+    public double getVentaNeta() {
+        return ventaNeta;
+    }
+
+    public void setVentaNeta(double ventaNeta) {
+        this.ventaNeta = ventaNeta;
     }
 }
