@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA"
+    android:background="#CDD0DA"
     tools:context=".Principal">
 
     <Spinner
@@ -107,6 +107,7 @@
         android:ems="10"
         android:hint="Cantidad"
         android:inputType="number"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +123,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="#ECEEE2"
+        android:gravity="clip_horizontal"
         android:ems="10"
+        android:hint="Aquí se Mostrarán los resultados"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

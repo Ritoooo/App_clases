@@ -24,7 +24,7 @@ public class ProductoDAO {
         double ventaNeta = calcularVentaNeta(this.objProductoBean);
         this.objProductoBean.setVentaNeta(ventaNeta);
 
-        mensaje =   "Marca->"+ marca+" El costo del par es -> "+ costo +"\n"+
+        mensaje =   "El costo del par es -> "+ costo +"\n"+
                     "La venta de las zapatillas es -> "+ venta + "\n"+
                     "El descuento es -> " + descuento + "\n"+
                     "La venta neta es -> " + ventaNeta;
