@@ -42,6 +42,8 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
         rdInterno = (RadioButton)findViewById(R.id.rdInterno);
         rdExterno = (RadioButton)findViewById(R.id.rdExterno);
 
+        txtResultado.setEnabled(false);
+
         btnCalcular = (Button)findViewById(R.id.btnCalcular);
         btnCalcular.setOnClickListener(this);
     }
@@ -50,7 +52,11 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if (v == btnCalcular){
-            calcular();
+            try {
+                calcular();
+            }catch (Exception e){
+                txtResultado.setText(e.getMessage());
+            }
         }
     }
 

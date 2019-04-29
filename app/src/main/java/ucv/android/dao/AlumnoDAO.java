@@ -24,9 +24,9 @@ public class AlumnoDAO {
         double nuevaPension = this.calcularPensionFinal(this.objAlumnoBean);
         this.objAlumnoBean.setNuevaPension(nuevaPension);
 
-        mensaje =   "La pensión es->"+pension+"\n"+
-                    "Tu descuento es->"+descuento+"\n"+
-                    "Tu nueva pensión será"+nuevaPension+"\n";
+        mensaje =   "Tu pensión es-> S/."+pension+"\n"+
+                    "Tu descuento es-> S/."+descuento+"\n"+
+                    "Tu nueva pensión será-> S/."+nuevaPension+"\n";
 
         return mensaje;
     }
