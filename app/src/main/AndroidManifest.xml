@@ -9,17 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <service
+            android:name="controlador.PersonalControlador"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".ContentFrmPrincipalPersonal" />
+        <activity android:name=".FrmLoginEstudiante" />
+        <activity android:name=".FrmLoginPersonal" />
+        <activity android:name=".index">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
-
-
 
 </manifest>
