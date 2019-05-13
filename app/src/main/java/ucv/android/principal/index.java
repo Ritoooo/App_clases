@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import ucv.android.controlador.EstudianteControlador;
+import ucv.android.controlador.PersonalControlador;
+
 public class index extends AppCompatActivity {
 
     ImageButton btnPersonal, btnEstudiante;
@@ -35,14 +38,14 @@ public class index extends AppCompatActivity {
     }
 
     public void goToPersonal(){
-        Intent objIntentPersonal = new Intent(index.this, FrmLoginPersonal.class);
-        startActivity(objIntentPersonal);
+        Intent objIntentPersonal = new Intent(index.this, PersonalControlador.class);
+        startService(objIntentPersonal);
         finish();
     }
 
     public void goToEstudiante(){
-        Intent objIntentEstudiante = new Intent(index.this, FrmLoginEstudiante.class);
-        startActivity(objIntentEstudiante);
+        Intent objIntentEstudiante = new Intent(index.this, EstudianteControlador.class);
+        startService(objIntentEstudiante);
         finish();
     }
 

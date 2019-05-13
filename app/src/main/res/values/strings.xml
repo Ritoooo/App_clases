@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SISTEMA EVALUACIÓN</string>
+    <string name="login_personal">VALIDACIÓN PERSONAL</string>
+    <string name="login_estudiante">VALIDACIÓN ESTUDIANTE</string>
+    <string name="title_activity_frm_login_personal">Ventana Principal del Personal</string>
+    <string name="title_activity_frm_login_estudiante">Siatema Evaluación</string>
 </resources>

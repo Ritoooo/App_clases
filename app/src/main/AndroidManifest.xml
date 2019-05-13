@@ -9,14 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service
-            android:name="controlador.PersonalControlador"
-            android:enabled="true"
-            android:exported="true"></service>
+        <activity android:name=".ContentFrmPrincipalEstudiante"></activity>
 
-        <activity android:name=".ContentFrmPrincipalPersonal" />
-        <activity android:name=".FrmLoginEstudiante" />
-        <activity android:name=".FrmLoginPersonal" />
+        <service
+            android:name="ucv.android.controlador.EstudianteControlador"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name="ucv.android.controlador.PersonalControlador"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".ContentFrmPrincipalPersonal" />
+        <activity
+            android:name=".FrmLoginEstudiante"
+            android:label="@string/login_estudiante"/>
+        <activity
+            android:name=".FrmLoginPersonal"
+            android:label="@string/login_personal"/>
         <activity android:name=".index">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
