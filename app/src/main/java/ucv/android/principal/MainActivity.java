@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button cancelButton, sortButton;
     int[] numbers = {1,5,7,4,8};
-    int position = 0;
+    int position = 1;
     TextView progressLabel;
 
     SimpleTask simpleTask;
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(),"¡NúmerosOrdenados!",Toast.LENGTH_LONG).show();
                 break;
             case 1:
+                execWithThread();
                 break;
             case 2:
                 execWithAsyncTask();
@@ -58,6 +59,26 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    public void execWithThread(){
+        new Thread(
+                new Runnable()
+                {
+                    @Override
+                    public void run() {
+                        bubbleSort(numbers);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText( getBaseContext(),"¡Números Ordenados!",Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                }
+        ).start();
+    }
+
+
     public void execWithAsyncTask(){
         simpleTask= new SimpleTask();
         simpleTask.execute();
