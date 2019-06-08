@@ -4,20 +4,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import ucv.android.principal.HiddenFragment.TaskCallbacks;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TaskCallbacks{
 
     Button cancelButton, sortButton;
-    int[] numbers = {1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,
+    int[] numbers = {
+            1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,
             1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
             4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
             8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
@@ -73,67 +76,12 @@ public class MainActivity extends AppCompatActivity {
             1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
             4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
             8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,15,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
-            8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,15,
-            1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
-            4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8
+            1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2
     };
     int position = 2;
     TextView progressLabel;
+    ProgressBar progressBar;
+    HiddenFragment fragment;
 
     SimpleTask simpleTask;
 
@@ -144,6 +92,14 @@ public class MainActivity extends AppCompatActivity {
         cancelButton = (Button)findViewById(R.id.cancelButton);
         sortButton = (Button)findViewById(R.id.sortButton);
         progressLabel = (TextView)findViewById(R.id.progressLabel);
+        fragment = (HiddenFragment)getSupportFragmentManager().findFragmentByTag("HIDDEN_FRAGMENT_TAG");
+        if (position ==3 && fragment != null){
+            if (fragment.progressBarTask.getStatus() == AsyncTask.Status.RUNNING){
+                progressBar.setVisibility(View.VISIBLE);
+                cancelButton.setVisibility(View.VISIBLE);
+                sortButton.setEnabled(false);
+            }
+        }
 
     }
 
@@ -173,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 execWithAsyncTask();
                 break;
             case 3:
+                execWhithProgressBar();
                 break;
         }
     }
@@ -208,9 +165,10 @@ public class MainActivity extends AppCompatActivity {
         simpleTask.execute();
     }
 
-    public void goABTest(View view) {
-        Intent intent = new Intent(this,ABTest.class);
-        startActivity(intent);
+    private void execWhithProgressBar(){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        fragment = new HiddenFragment();
+        transaction.add(R.id.container,fragment).commit();
     }
 
     private class SimpleTask extends AsyncTask<Void,Integer,Void>{
@@ -277,26 +235,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public class ABTest implements TaskCallbacks {
-        @Override
-        public void onPreExecute() {
 
-        }
+    @Override
+    public void onPreExecute() {
+        progressBar.setVisibility(View.VISIBLE);
+        cancelButton.setVisibility(View.VISIBLE);
+        sortButton.setEnabled(false);
+    }
 
-        @Override
-        public void onProgressUpdate(int progress) {
+    @Override
+    public void onProgressUpdate(int progress) {
+        progressBar.setProgress(progress);
+        progressLabel.setText(progress+"%");
+    }
 
-        }
+    @Override
+    public void onCancelled() {
+        progressBar.setVisibility(View.INVISIBLE);
+        cancelButton.setVisibility(View.INVISIBLE);
+        progressLabel.setText("En la espera");
+        sortButton.setEnabled(true);
+    }
 
-        @Override
-        public void onCancelled() {
-
-        }
-
-        @Override
-        public void onPostExecute() {
-
-        }
+    @Override
+    public void onPostExecute() {
+        progressBar.setVisibility(View.INVISIBLE);
+        cancelButton.setVisibility(View.INVISIBLE);
+        sortButton.setEnabled(true);
+        progressLabel.setText("Completado");
     }
 
     }

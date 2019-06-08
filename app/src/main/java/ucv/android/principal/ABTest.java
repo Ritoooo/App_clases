@@ -72,7 +72,7 @@ public class ABTest extends AppCompatActivity implements TaskCallbacks {
         progressLabel = (TextView)findViewById(R.id.progressLabel2);
         fragment = (HiddenFragment)getSupportFragmentManager().findFragmentByTag("HIDDEN_FRAGMENT_TAG");
         if (position ==3 && fragment != null){
-            if (fragment.progressVarTask.getStatus() == Status.RUNNING){
+            if (fragment.progressBarTask.getStatus() == Status.RUNNING){
                 progressBar.setVisibility(View.VISIBLE);
                 cancelButton.setVisibility(View.VISIBLE);
                 sortButton.setEnabled(false);
