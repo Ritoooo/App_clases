@@ -1,5 +1,6 @@
 package ucv.android.principal;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,11 +9,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+@SuppressLint("MissingSuperCall")
 public class FragmentA extends ListFragment {
     private final  String[] lista = {"RED","GREEN","BLUE"};
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter(getActivity().
                 getApplicationContext(),android.R.layout.simple_list_item_1,lista));
@@ -21,13 +23,13 @@ public class FragmentA extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        FragmentB vista = (FragmentB)getFragmentManager().findFragmentById(R.layout.detalle);
+        FragmentB vista = (FragmentB)getFragmentManager().findFragmentById(R.id.detalle);
         if (vista == null || !vista.isInLayout()){
             Intent objIntent = new Intent(getActivity(),Detalle.class);
             objIntent.putExtra("color_type",lista[position]);
             startActivity(objIntent);
         }else {
-            //vista.actualizarColor(lista[position]);
+            vista.actualizarColor(lista[position]);
         }
     }
 }

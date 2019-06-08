@@ -24,7 +24,7 @@ public class FragmentB extends ListFragment {
         return vista;
     }
 
-    private void actualizarColor(String color) {
+    public void actualizarColor(String color) {
         if (color != null) {
             if (color.equals("RED")) {
                 mtext.setBackground(getResources().getDrawable(R.color.red));
