@@ -12,7 +12,7 @@
         <activity android:name=".ABTest">
 
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".index">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

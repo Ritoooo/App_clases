@@ -1,24 +1,19 @@
 package ucv.android.principal;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import ucv.android.principal.HiddenFragment.TaskCallbacks;
 
-public class MainActivity extends AppCompatActivity implements TaskCallbacks{
+public class index extends AppCompatActivity implements TaskCallbacks{
 
-    Button cancelButton, sortButton;
     int[] numbers = {
             1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,
             1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
@@ -76,19 +71,19 @@ public class MainActivity extends AppCompatActivity implements TaskCallbacks{
             1,5,4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,
             4,1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,1,5,4,8,
             8,5,9,5,3,2,6,18,2,4,9,5,7,9,4,65,41,4,5,100,1,10,2,4,5,8,
-            1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2
+            1,5,7,4,8,4,8,5,1,63,49,4,9,5,1,24,8,7,5,9,6,3,2,12,54
     };
     int position = 2;
     TextView progressLabel;
     ProgressBar progressBar;
     HiddenFragment fragment;
-
+    Button cancelButton, sortButton;
     SimpleTask simpleTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_index);
         cancelButton = (Button)findViewById(R.id.cancelButton);
         sortButton = (Button)findViewById(R.id.sortButton);
         progressLabel = (TextView)findViewById(R.id.progressLabel);

@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-//import ucv.android.principal.MainActivity.ProgressBarTask;
+//import ucv.android.principal.index.ProgressBarTask;
 
 public class HiddenFragment extends Fragment {
 
